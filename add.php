@@ -40,7 +40,7 @@ if( isset($_POST['Submit'])){
 
 		$result = mysqli_query($mysqli, "INSERT INTO birthdays(name, birthday) VALUES ('$name', '$birthday')");
 		echo "<font color='green'> Data Added Successfully.";
-		echo "<br/><a href='index.php'> View Result </a>";
+		echo "<br/><a href='indexbd.php'> View Result </a>";
 	}
 
 

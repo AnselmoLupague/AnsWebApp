@@ -23,7 +23,7 @@ if( isset($_POST['update']))
 	} else {
 
 		$result = mysqli_query($mysqli, "UPDATE birthdays set name='$name', birthday='$birthday' WHERE id=$id");
-		header("Location: index.php");
+		header("Location: indexbd.php");
 	}
 }
 ?>
