@@ -7,6 +7,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link id="theme-style" rel="stylesheet" href="assets/css/theme-1.css">
+	<link id="theme-style" rel="stylesheet" href="assets/css/style.css">
+	<link id="theme-style" rel="stylesheet" href="assets/css/bootstrap.css">
+
 	<title>Birthday | Adding Data</title>
 </head>
 <body style="background-image: url('assets/images/colored_floating_baloons.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
@@ -34,15 +39,17 @@ if( isset($_POST['Submit'])){
 	} else {
 
 		$result = mysqli_query($mysqli, "INSERT INTO birthdays(name, birthday) VALUES ('$name', '$birthday')");
-		echo "<font color='green' class='text-center'> Data Added Successfully.";
+		echo "<font color='green'> Data Added Successfully.";
 		echo "<br/><a href='index.php'> View Result </a>";
 	}
 
 
 }
 ?>
-
-
 </div>	
+
+	<script src="./js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="./js/bootstrap.bundle.min.js" ></script>
+
 </body>
 </html>

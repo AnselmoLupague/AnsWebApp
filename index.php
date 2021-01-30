@@ -2,7 +2,7 @@
 <?php 
 	include_once("config.php");
 
-	$result = mysqli_query($mysqli, "SELECT * FROM birthdays");
+	$result = mysqli_query($mysqli, "SELECT * FROM birthdays ORDER BY ID");
 ?>
 
 

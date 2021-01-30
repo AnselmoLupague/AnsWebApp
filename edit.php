@@ -4,30 +4,27 @@
 
 if( isset($_POST['update']))
 {
-			$name = mysqli_real_escape_string($mysqli, $_POST['id']);
-			$name = mysqli_real_escape_string($mysqli, $_POST['name']);
-			$birthday = mysqli_real_escape_string($mysqli, $_POST['birthday']);
+	$id = mysqli_real_escape_string($mysqli, $_POST['id']);
+	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
+	$birthday = mysqli_real_escape_string($mysqli, $_POST['birthday']);
 
+	if( empty($name) || empty($birthday) ){
 
-			if( empty($name) || empty($birthday) ){
+		if(empty($name)){
+			echo "<font color='red'> Name field is empty. </font><br/>";
+		}
 
-				if(empty($name)){
-					echo "<font color='red'> Name field is empty. </font><br/>";
-				}
+		if(empty($birthday)){
+			echo "<font color='red'> Birthdate field is empty. </font><br/>";
+		}
 
-				if(empty($birthday)){
-					echo "<font color='red'> Birthdate field is empty. </font><br/>";
-				}
+		echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
 
-				echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+	} else {
 
-			} else {
-
-				$result = mysqli_query($mysqli, "UPDATE birthdays SET name='$name', birthday='$birthday' WHERE id=$id");
-				header("Location: index.php");
-				
-			}
-
+		$result = mysqli_query($mysqli, "UPDATE birthdays set name='$name', birthday='$birthday' WHERE id=$id");
+		header("Location: index.php");
+	}
 }
 ?>
 
@@ -71,16 +68,16 @@ if( isset($_POST['update']))
 			</tr>
 			<tr>
 				<td>Birthdate</td>
-				<td><input class="w-100 mb-2" type="text" name="birthday" value="<?php echo $birthday;?>" ></td>
+				<td><input class="w-100 mb-2" type="date" name="birthday"  value="<?php echo $birthday;?>"></td>
 			</tr>
-
 			<tr>
 				<td>
 					<input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
 				</td>
 				<td><input class="btn btn-primary btn-block" type="submit" name="update" value="Update"></td>
 			</tr>
-		</table>		
+		</table>
+
 	</form>
 </div>
 
